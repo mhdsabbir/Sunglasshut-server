@@ -63,12 +63,12 @@ async function run(){
         app.post('/myorder', async(req, res) => {
           const order = req.body;
           const result = await orderCollection.insertOne(order);
-          console.log(result);
+          // console.log(result);
           res.json(result);
         });
  
         app.get('/order/:email', async(req, res) => {
-          console.log(req.params.email)
+          // console.log(req.params.email)
           const query = {email: req.params.email};
           const result = await orderCollection.find({email:  req?.params?.email}).toArray();
            res.json(result);
@@ -76,7 +76,7 @@ async function run(){
 
         app.delete('/order/:id', async (req, res) => {
           const id = req.params.id;
-          console.log(id)
+          // console.log(id)
           const query = { _id: ObjectId(id) };
           const result = await orderCollection.deleteOne(query);
           console.log('deleting user with id', id);
